@@ -25,7 +25,7 @@ const Dashboard: React.FC = () => {
     return (
         <div >
             <div className="md:p-6 p-2  h-full">
-                <div className="flex justify-between flex-wrap  mb-5">
+                <div className="flex justify-between flex-wrap flex-col md:flex-row mb-5">
                     <h1 className="text-3xl text-[#2A2A40] font-semibold">Estadísticas</h1>
                     <CustomButton
                         text="Agregar Empleado"

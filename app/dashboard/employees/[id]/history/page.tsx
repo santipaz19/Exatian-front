@@ -35,8 +35,8 @@ const Employees: React.FC = () => {
     }, []);
 
     return (
-        <div className="p-6 space-y-6">
-            <div className="flex justify-between">
+        <div className="md:p-6 p-2 space-y-6">
+            <div className="flex justify-between flex-col ">
                 <h1 className='text-3xl text-[#2A2A40] font-semibold'> Historial de ingresos</h1>
                 <CustomButton text="Volver" color="red" onClick={() => router.push('/dashboard/employees')} />
             </div>

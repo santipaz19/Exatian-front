@@ -48,7 +48,7 @@ export default function ModalAttendance({
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-            <div className="bg-white text-[#2A2A40] rounded-xl shadow-lg p-6 w-full max-w-md relative">
+            <div className="bg-white text-[#2A2A40] rounded-xl shadow-lg mx-2 p-6 w-full max-w-md relative">
                 <h2 className="text-xl font-semibold mb-4">
                     {type === "entrada" ? "Agregar entrada" : "Agregar salida"}
                 </h2>
