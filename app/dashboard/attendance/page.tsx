@@ -64,10 +64,7 @@ const AttendanceList: React.FC = () => {
         }
     };
 
-    const loading = loadingAtt || loadingEmp;
 
-    useEffect(() => {
-    }, [loading]);
 
     return (
         <div className="md:p-6 p-2  space-y-6">
@@ -92,11 +89,9 @@ const AttendanceList: React.FC = () => {
                 </div>
             )}
 
-            {loading ? (
-                <p>Cargando datos...</p>
-            ) : (
-                <DataTable columns={columnsAttendance} data={attendanceData} />
-            )}
+
+            <DataTable columns={columnsAttendance} data={attendanceData} />
+
 
             <ModalAttendance
                 isOpen={isModalOpen}
