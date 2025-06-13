@@ -59,11 +59,11 @@ const AttendancePage: React.FC = () => {
                 }
             }
 
-            // Para entradas, cerrar modal después de un breve delay
+
             setTimeout(() => {
                 setIsModalOpen(false);
                 setSuccessMessage(null);
-            }, 2000);
+            }, 6000);
 
         } catch (error: any) {
             const msg = error.response?.data?.message || 'Error desconocido';
