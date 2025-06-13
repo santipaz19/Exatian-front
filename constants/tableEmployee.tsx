@@ -6,7 +6,7 @@ import React from 'react';
 export function getColumnsEmployees(onDelete: (id: number) => void) {
     return [
         { header: 'Nombre completo', accessorKey: 'fullName' },
-        { header: 'DNI', accessorKey: 'dni' },
+        { header: 'DNI', accessorKey: 'dni', },
         { header: 'Email', accessorKey: 'email' },
         { header: 'Puesto', accessorKey: 'position' },
         {

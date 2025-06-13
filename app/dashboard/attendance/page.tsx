@@ -81,8 +81,8 @@ const AttendancePage: React.FC = () => {
 
     return (
         <div className="md:p-6 p-2 space-y-6">
-            <div className="flex justify-between flex-wrap items-center">
-                <h1 className="text-3xl text-[#2A2A40] font-semibold">Registro de Asistencias</h1>
+            <div className="flex md:justify-between flex-wrap items-center justify-center">
+                <h1 className="text-3xl text-[#2A2A40] font-semibold mb-3">Registro de Asistencias</h1>
                 <div className="flex gap-2">
                     <CustomButton
                         text="Ver Activos"

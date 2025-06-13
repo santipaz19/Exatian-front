@@ -15,8 +15,8 @@ interface DataTableProps {
 
 const DataTable: React.FC<DataTableProps> = ({ columns, data }) => {
     return (
-        <div className="overflow-x-auto bg-[#2A2A40] shadow rounded text-white">
-            <table className="min-w-full divide-y  divide-gray-200">
+        <div className="overflow-x-auto max-w-[95vw]  bg-[#2A2A40] shadow rounded text-white">
+            <table className="min-w-full overflow-x-scroll divide-y  divide-gray-200">
                 <thead className="bg-gray-700">
                     <tr>
                         {columns.map((col) => (
@@ -34,7 +34,7 @@ const DataTable: React.FC<DataTableProps> = ({ columns, data }) => {
                         data.map((row, rowIndex) => (
                             <tr key={rowIndex} className="hover:bg-gray-600 even:bg-[#28283f] ">
                                 {columns.map((col) => (
-                                    <td key={col.accessorKey} className={`md:px-6 px-2 py-4 text-sm md:text-base whitespace-nowrap ${col.className}`}>
+                                    <td key={col.accessorKey} className={`px-6 py-4 text-sm md:text-base whitespace-nowrap ${col.className}`}>
                                         {col.cell
                                             ? col.cell({ getValue: () => row[col.accessorKey] })
                                             : row[col.accessorKey] ?? '-'}
