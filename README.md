@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AsistControl Exactian Frontend
 
-## Getting Started
+Este proyecto es la interfaz de usuario para un sistema de gestión de empleados y asistencias desarrollado con Next.
 
-First, run the development server:
+## Descripción de la Aplicación
 
-```bash
+La aplicación permite gestionar empleados y sus movimientos de manera eficiente, incluyendo las siguientes funcionalidades:
+
+Crear empleados: Permite agregar nuevos empleados al sistema de forma sencilla y rápida.
+
+Editar empleados: Facilita la modificación de la información de los empleados existentes, asegurando que los datos estén siempre actualizados.
+
+Eliminar empleados: Ofrece la opción de eliminar empleados del sistema, garantizando una gestión adecuada de los recursos humanos.
+
+Registrar ingresos y egresos: Permite llevar un control detallado de los ingresos y egresos de las personas, mejorando la trazabilidad de las operaciones.
+
+Historial de ingresos: Proporciona acceso a un registro completo de todos los ingresos realizados, lo que permite un seguimiento efectivo de las actividades.
+
+Gestión de personas activas: Permite visualizar y gestionar el estado de las personas activas en el sistema, asegurando que la información esté siempre disponible y actualizada.
+
+# Deploy:
+https://exactian-front.vercel.app/
+
+En caso de utilizar el deploy esperar unos minutos a que se levante el servidor debido a que esta alojado en render y en el plan gratis al estar inactivo se apaga.
+
+## Instalación
+
+1. **Clonar el repositorio:**
+
+   ```bash
+   git clone https://github.com/santipaz19/Exatian-front.git
+2. **Instalar dependencias: Usando npm:**
+
+   npm install
+
+## Ejecucion
+
+Para iniciar el proyecto en modo desarrollo:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+El proyecto se ejecutará en http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estructura del Proyecto
+app/: Contiene el código fuente del proyecto.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+services/: Módulos para interactuar con las API.
 
-## Learn More
+components/: Componentes modularizados.
 
-To learn more about Next.js, take a look at the following resources:
+hooks/: Hooks personalizados para gestionar el estado y efectos.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+constants/: Constantes e interfaces de typescript.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
