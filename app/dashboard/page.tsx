@@ -40,8 +40,6 @@ const Dashboard: React.FC = () => {
                     <StatCard label="Inactivos" value={empleados.filter(e => !e.isActive).length} />
                 </div>
             </div>
-
-
             <AttendanceList />
         </div>
     );
