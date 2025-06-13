@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const LOCAL_API_URL = "http://localhost:5000/";
-const REMOTE_API_URL = "https://api.tudominio.com/api";
+const REMOTE_API_URL = "https://exatian-back.onrender.com";
 
 const baseURL = process.env.NEXT_PUBLIC_API_URL || LOCAL_API_URL;
 
