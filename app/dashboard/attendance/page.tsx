@@ -9,15 +9,14 @@ import { useEmployees } from '@/hooks/useEmployees';
 import { useRouter } from 'next/navigation';
 import { formatDuration } from '@/utils/time';
 
-interface AttendanceListProps {
-    setIsLoading?: (loading: boolean) => void;
-}
 
-const AttendanceList: React.FC<AttendanceListProps> = ({ setIsLoading }) => {
+
+const AttendanceList: React.FC = () => {
     const { attendanceData, loading: loadingAtt, createEntry, createExit } = useAttendance();
     const { empleados, loading: loadingEmp } = useEmployees();
 
     const [isModalOpen, setIsModalOpen] = useState(false);
+
     const [modalType, setModalType] = useState<'entrada' | 'salida'>('entrada');
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const [successMessage, setSuccessMessage] = useState<string | null>(null);
@@ -33,7 +32,7 @@ const AttendanceList: React.FC<AttendanceListProps> = ({ setIsLoading }) => {
 
     const handleModalSubmit = async (data: { employeeId: number; entryTime?: string; exitTime?: string }) => {
         try {
-            setIsLoading?.(true);
+
             setErrorMessage(null);
             setSuccessMessage(null);
 
@@ -61,15 +60,14 @@ const AttendanceList: React.FC<AttendanceListProps> = ({ setIsLoading }) => {
             const msg = error.response?.data?.message || 'Error desconocido';
             setErrorMessage(msg);
         } finally {
-            setIsLoading?.(false);
+
         }
     };
 
     const loading = loadingAtt || loadingEmp;
 
     useEffect(() => {
-        setIsLoading?.(loading);
-    }, [loading, setIsLoading]);
+    }, [loading]);
 
     return (
         <div className="md:p-6 p-2  space-y-6">

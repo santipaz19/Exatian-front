@@ -37,12 +37,12 @@ const Dashboard: React.FC = () => {
                 <div className="grid md:grid-cols-3 grid-cols-1 gap-6 mb-8">
                     <StatCard label="Total Empleados" value={empleados.length} />
                     <StatCard label="Activos" value={empleados.filter(e => e.isActive).length} />
-                    <StatCard label="Trabajando" value={attendanceData.filter(a => !a.exitTime).length} />
+                    <StatCard label="Inactivos" value={empleados.filter(e => !e.isActive).length} />
                 </div>
             </div>
 
 
-            <AttendanceList setIsLoading={setLoading} />
+            <AttendanceList />
         </div>
     );
 };
