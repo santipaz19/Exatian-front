@@ -25,7 +25,7 @@ export function useAttendance() {
     }, [fetchData]);
 
     const createEntry = async (data: { employeeId: number; entryTime: string }) => {
-        setLoading(true);
+
         try {
             const res = await attendanceService.createEntry(data);
             await fetchData();
@@ -34,23 +34,18 @@ export function useAttendance() {
             console.log('Error en createEntry:', err);
 
             throw err;
-        } finally {
-            setLoading(false);
         }
     };
 
     const createExit = async (data: { employeeId: number; exitTime: string }) => {
-        setLoading(true);
+
         try {
             const res = await attendanceService.createExit(data);
             await fetchData();
             return res.data;
         } catch (err: any) {
             console.log('Error en createExit:', err);
-
             throw err;
-        } finally {
-            setLoading(false);
         }
     };
 

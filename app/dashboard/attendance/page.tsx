@@ -65,7 +65,6 @@ const AttendanceList: React.FC = () => {
     };
 
 
-
     return (
         <div className="md:p-6 p-2  space-y-6">
             <div className="flex justify-between flex-wrap items-center">
@@ -89,9 +88,11 @@ const AttendanceList: React.FC = () => {
                 </div>
             )}
 
-
-            <DataTable columns={columnsAttendance} data={attendanceData} />
-
+            {loadingAtt ? (
+                <p>Cargando datos...</p>
+            ) : (
+                <DataTable columns={columnsAttendance} data={attendanceData} />
+            )}
 
             <ModalAttendance
                 isOpen={isModalOpen}
