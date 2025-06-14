@@ -1,5 +1,3 @@
-
-
 export const columnsAttendance = [
     {
         header: 'Empleado',
@@ -16,6 +14,7 @@ export const columnsAttendance = [
             const value = getValue();
             return value
                 ? new Date(value).toLocaleString('es-AR', {
+                    year: '2-digit',
                     day: '2-digit',
                     month: '2-digit',
                     hour: '2-digit',
@@ -31,7 +30,7 @@ export const columnsAttendance = [
             const value = getValue();
             return value
                 ? new Date(value).toLocaleString('es-AR', {
-
+                    year: '2-digit',
                     day: '2-digit',
                     month: '2-digit',
                     hour: '2-digit',
@@ -42,7 +41,6 @@ export const columnsAttendance = [
     },
     {
         header: 'Tiempo transcurrido',
-        className: 'md:block hidden',
         accessorKey: 'durationMinutes',
         cell: ({ getValue }: any) => {
             const value = getValue();

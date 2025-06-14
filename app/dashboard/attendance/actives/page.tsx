@@ -31,7 +31,7 @@ const AttendanceActiveList: React.FC = () => {
     }, []);
 
     return (
-        <div className="p-6 space-y-6">
+        <div className="md:p-6 p-2 space-y-6">
             <div className="flex md:justify-between md:flex-row flex-col  items-center">
                 <h1 className="text-3xl text-[#2A2A40] font-semibold pb-3">Asistencias activas</h1>
                 <div className='flex gap-2 justify-center'>

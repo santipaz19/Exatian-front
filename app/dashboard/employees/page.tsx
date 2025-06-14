@@ -48,7 +48,7 @@ const Employees: React.FC = () => {
         <div className="md:p-6 p-2 space-y-6">
             <div className="flex justify-between flex-wrap flex-col md:flex-row ">
                 <h1 className="text-3xl text-[#2A2A40] font-semibold">Empleados</h1>
-                <CustomButton text="Agregar empleado" color="blue" onClick={() => router.push('/dashboard/employees/create')} />
+                <CustomButton text="Agregar Empleado" color="blue" onClick={() => router.push('/dashboard/employees/create')} />
             </div>
 
             {errorMessage && <div className="bg-red-100 text-red-700 px-4 py-2 rounded">{errorMessage}</div>}
