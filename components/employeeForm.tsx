@@ -3,6 +3,7 @@ import { Employee } from '@/constants/constants';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
+import { FormInput } from './formInput';
 
 interface EmployeeFormProps {
     initialData?: Employee;
@@ -58,80 +59,53 @@ const EmployeeForm: React.FC<EmployeeFormProps> = ({
 
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                        <label className="block text-sm font-medium text-[#374151]">
-                            Nombre completo
-                        </label>
-                        <input
-                            type="text"
-                            name="fullName"
-                            placeholder="Ingresa el nombre completo"
-                            value={formData.fullName}
-                            onChange={handleChange}
-                            className="w-full h-12 px-4 rounded-lg border border-[#e2e8f0] bg-white text-[#1e293b] placeholder-[#64748b] focus:ring-2 focus:ring-[#3b82f6] focus:border-[#3b82f6] transition-all duration-200"
-                            required
-                        />
-                    </div>
-
-                    <div className="space-y-2">
-                        <label className="block text-sm font-medium text-[#374151]">
-                            DNI
-                        </label>
-                        <input
-                            type="text"
-                            name="dni"
-                            placeholder="Ingresa el DNI"
-                            value={formData.dni}
-                            onChange={handleChange}
-                            className="w-full h-12 px-4 rounded-lg border border-[#e2e8f0] bg-white text-[#1e293b] placeholder-[#64748b] focus:ring-2 focus:ring-[#3b82f6] focus:border-[#3b82f6] transition-all duration-200"
-                            required
-                        />
-                    </div>
-                </div>
-
-                <div className="space-y-2">
-                    <label className="block text-sm font-medium text-[#374151]">
-                        Correo electrónico
-                    </label>
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="correo@ejemplo.com"
-                        value={formData.email}
+                    <FormInput
+                        label="Nombre completo"
+                        name="fullName"
+                        placeholder="Ingresa el nombre completo"
+                        value={formData.fullName}
                         onChange={handleChange}
-                        className="w-full h-12 px-4 rounded-lg border border-[#e2e8f0] bg-white text-[#1e293b] placeholder-[#64748b] focus:ring-2 focus:ring-[#3b82f6] focus:border-[#3b82f6] transition-all duration-200"
+                        required
+                    />
+
+                    <FormInput
+                        label="DNI"
+                        name="dni"
+                        placeholder="Ingresa el DNI"
+                        value={formData.dni}
+                        onChange={handleChange}
                         required
                     />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                        <label className="block text-sm font-medium text-[#374151]">
-                            Puesto
-                        </label>
-                        <input
-                            type="text"
-                            name="position"
-                            placeholder="Ingresa el puesto"
-                            value={formData.position}
-                            onChange={handleChange}
-                            className="w-full h-12 px-4 rounded-lg border border-[#e2e8f0] bg-white text-[#1e293b] placeholder-[#64748b] focus:ring-2 focus:ring-[#3b82f6] focus:border-[#3b82f6] transition-all duration-200"
-                        />
-                    </div>
+                <FormInput
+                    label="Correo electrónico"
+                    name="email"
+                    type="email"
+                    placeholder="correo@ejemplo.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                />
 
-                    <div className="space-y-2">
-                        <label className="block text-sm font-medium text-[#374151]">
-                            Fecha de contratación
-                        </label>
-                        <input
-                            type="date"
-                            name="hireDate"
-                            value={formData.hireDate}
-                            onChange={handleChange}
-                            className="w-full h-12 px-4 rounded-lg border border-[#e2e8f0] bg-white text-[#1e293b] focus:ring-2 focus:ring-[#3b82f6] focus:border-[#3b82f6] transition-all duration-200"
-                        />
-                    </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <FormInput
+                        label="Puesto"
+                        name="position"
+                        placeholder="Ingresa el puesto"
+                        value={formData.position}
+                        onChange={handleChange}
+                    />
+
+                    <FormInput
+                        label="Fecha de contratación"
+                        name="hireDate"
+                        type="date"
+                        value={formData.hireDate}
+                        onChange={handleChange}
+                    />
                 </div>
+
 
 
                 <div className="flex items-center gap-3 p-4 bg-[#f8fafc] rounded-lg border border-[#e2e8f0]">

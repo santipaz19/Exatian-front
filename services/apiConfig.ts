@@ -1,4 +1,3 @@
-// src/services/apiClient.ts
 import axios from "axios";
 
 const LOCAL_API_URL = "http://localhost:5000/";

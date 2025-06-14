@@ -8,6 +8,7 @@ import { Attendance } from '@/constants/constants';
 import { useParams, useRouter } from 'next/navigation';
 import attendanceService from '@/services/attendanceServices';
 import { columnsAttendance } from '@/constants/tableAttendance';
+import { LoadingSpinner } from '@/components/spinner';
 
 
 const Employees: React.FC = () => {
@@ -36,13 +37,13 @@ const Employees: React.FC = () => {
 
     return (
         <div className="md:p-6 p-2 space-y-6">
-            <div className="flex justify-between flex-col ">
+            <div className="flex justify-between flex-col md:flex-row ">
                 <h1 className='text-3xl text-[#2A2A40] font-semibold'> Historial de ingresos</h1>
                 <CustomButton text="Volver" color="red" onClick={() => router.push('/dashboard/employees')} />
             </div>
 
             {loading ? (
-                <p>Cargando empleados...</p>
+                <LoadingSpinner />
             ) : (
                 <DataTable columns={columnsAttendance} data={attendanceServices} />
             )}

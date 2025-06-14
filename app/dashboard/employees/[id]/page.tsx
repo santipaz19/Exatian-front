@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import EmployeeForm from "@/components/employeeForm";
 import employeeService from "@/services/employeeServices";
 import { Employee } from "@/constants/constants";
+import { LoadingSpinner } from "@/components/spinner";
 
 const EditEmployee: React.FC = () => {
     const params = useParams<{ id: string }>();
@@ -40,7 +41,7 @@ const EditEmployee: React.FC = () => {
         }
     };
 
-    if (loading) return <p>Cargando datos...</p>;
+    if (loading) return <LoadingSpinner />
     if (!initialData) return <p>Empleado no encontrado.</p>;
 
     return (

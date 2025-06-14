@@ -6,6 +6,7 @@ import { columnsAttendance } from '@/constants/tableAttendance';
 import attendanceService from '@/services/attendanceServices';
 import type { Attendance } from '@/constants/constants';
 import { useRouter } from 'next/navigation';
+import { LoadingSpinner } from '@/components/spinner';
 
 const AttendanceActiveList: React.FC = () => {
     const [data, setData] = useState<Attendance[]>([]);
@@ -60,7 +61,7 @@ const AttendanceActiveList: React.FC = () => {
             )}
 
             {loading ? (
-                <p>Cargando asistencias activas...</p>
+                <LoadingSpinner />
             ) : (
                 <DataTable
                     columns={columnsAttendance}

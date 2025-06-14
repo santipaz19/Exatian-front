@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import CustomButton from '@/components/button';
 import DataTable from '@/components/dataTable';
 import ModalAttendance from '@/components/modalAttendance';
@@ -22,7 +22,6 @@ const AttendancePage: React.FC = () => {
 
     const router = useRouter();
 
-    // Loading combinado
     const isLoading = loadingAtt || loadingEmp;
 
     const openModal = (type: 'entrada' | 'salida') => {

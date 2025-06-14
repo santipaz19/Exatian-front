@@ -6,6 +6,7 @@ import { getColumnsEmployees } from '@/constants/tableEmployee';
 import employeeService from '@/services/employeeServices';
 import { Employee } from '@/constants/constants';
 import { useRouter } from 'next/navigation';
+import { LoadingSpinner } from '@/components/spinner';
 
 const Employees: React.FC = () => {
     const [employeesData, setEmployeesData] = useState<Employee[]>([]);
@@ -53,7 +54,7 @@ const Employees: React.FC = () => {
             {errorMessage && <div className="bg-red-100 text-red-700 px-4 py-2 rounded">{errorMessage}</div>}
 
             {loading ? (
-                <p>Cargando empleados...</p>
+                <LoadingSpinner />
             ) : (
                 <DataTable columns={columns} data={employeesData} />
             )}

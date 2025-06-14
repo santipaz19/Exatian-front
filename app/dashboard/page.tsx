@@ -6,25 +6,30 @@ import StatCard from '@/components/statCard';
 import { useRouter } from 'next/navigation';
 import AttendanceList from './attendance/page';
 import { useEmployees } from '@/hooks/useEmployees';
-import { useAttendance } from '@/hooks/useAttendance';
 
 const Dashboard: React.FC = () => {
     const { empleados, fetchEmployees } = useEmployees();
-    const { attendanceData, fetchData } = useAttendance();
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const router = useRouter();
 
-
     useEffect(() => {
-        if (loading) {
-            Promise.all([fetchEmployees(), fetchData()])
-                .finally(() => setLoading(false));
-        }
-    }, [loading, fetchEmployees, fetchData]);
+        const loadEmployees = async () => {
+            try {
+                setLoading(true);
+                await fetchEmployees();
+            } catch (error) {
+                console.error('Error loading employees:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        loadEmployees();
+    }, [fetchEmployees]);
 
     return (
-        <div >
-            <div className="md:p-6 p-2  h-full">
+        <div>
+            <div className="md:p-6 p-2 h-full">
                 <div className="flex justify-between flex-wrap flex-col md:flex-row mb-5">
                     <h1 className="text-3xl text-[#2A2A40] font-semibold">Estadísticas</h1>
                     <CustomButton
@@ -34,11 +39,19 @@ const Dashboard: React.FC = () => {
                     />
                 </div>
 
-                <div className="grid md:grid-cols-3 grid-cols-1 gap-6 mb-8">
-                    <StatCard label="Total Empleados" value={empleados.length} />
-                    <StatCard label="Activos" value={empleados.filter(e => e.isActive).length} />
-                    <StatCard label="Inactivos" value={empleados.filter(e => !e.isActive).length} />
-                </div>
+                {loading ? (
+                    <div className="grid md:grid-cols-3 grid-cols-1 gap-6 mb-8">
+                        <StatCard label="Total Empleados" value="..." />
+                        <StatCard label="Activos" value="..." />
+                        <StatCard label="Inactivos" value="..." />
+                    </div>
+                ) : (
+                    <div className="grid md:grid-cols-3 grid-cols-1 gap-6 mb-8">
+                        <StatCard label="Total Empleados" value={empleados.length} />
+                        <StatCard label="Activos" value={empleados.filter(e => e.isActive).length} />
+                        <StatCard label="Inactivos" value={empleados.filter(e => !e.isActive).length} />
+                    </div>
+                )}
             </div>
             <AttendanceList />
         </div>
