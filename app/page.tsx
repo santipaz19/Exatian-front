@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <main className="min-h-screen bg-indigo-100">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10"></div>
@@ -66,12 +66,12 @@ export default function Home() {
                       <div className="bg-white/20 rounded-lg p-3">
 
                         <div className="text-lg font-semibold">8</div>
-                        <div className="text-xs text-blue-100">En oficina</div>
+                        <div className="text-xs text-blue-100">Empleados Inctivos</div>
                       </div>
                       <div className="bg-white/20 rounded-lg p-3">
 
-                        <div className="text-lg font-semibold">95%</div>
-                        <div className="text-xs text-blue-100">Asistencia</div>
+                        <div className="text-lg font-semibold">32</div>
+                        <div className="text-xs text-blue-100">Total de empleados</div>
                       </div>
                     </div>
                   </div>
