@@ -38,7 +38,7 @@ const Sidebar: React.FC<SidebarProps> = ({ items }) => {
 
             {/* Sidebar */}
             <aside
-                className={`fixed top-0 left-0 z-40 h-full min-h-screen w-64  bg-gradient-to-b from-[#1E1E2F] to-[#373753] border-r border-black text-white p-4 transform
+                className={`fixed top-0 left-0 z-40 h-full min-h-screen w-64  bg-gradient-to-b from-[#1E1E2F] to-[#2A2A40] border-r border-black text-white p-4 transform
                 transition-transform duration-300 ease-in-out
                 ${isOpen ? 'translate-x-0' : '-translate-x-full'}
                 md:translate-x-0 md:static lg:block`}
