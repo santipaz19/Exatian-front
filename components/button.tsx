@@ -15,10 +15,12 @@ const colorMap = {
 };
 
 const CustomButton: React.FC<CustomButtonProps> = ({ text, color = 'blue', onClick }) => {
+    const buttonClass = `${colorMap[color]} cursor-pointer text-white h-fit py-2 px-6 rounded transition`;
+
     return (
         <button
             onClick={onClick}
-            className={`${colorMap[color]} text-white h-fit py-2 px-6 rounded transition cursor-pointer`}
+            className={buttonClass}
         >
             {text}
         </button>
