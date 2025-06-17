@@ -4,6 +4,7 @@ import { setCompanyIdCookie } from '@/utils/cookies';
 import React, { useState } from 'react';
 import { FormInput } from './formInput';
 import CustomButton from './button';
+import { LoadingSpinner } from './spinner';
 
 interface CompanyModalProps {
     isOpen: boolean;
@@ -85,19 +86,21 @@ const CompanyModal: React.FC<CompanyModalProps> = ({ isOpen, onClose, onLoginSuc
                         onChange={handleInputChange}
                         required
                     />
-                    <CustomButton
+                    {isLoading ? <LoadingSpinner /> : <div className='space-y-2'><CustomButton
                         text='Iniciar Sesión'
                         color="blue"
                         disabled={isLoading || !formData.email || !formData.password}
                         type='submit'
                         className='w-full disabled:cursor-not-allowed'
                     />
-                    <CustomButton
-                        text='Cancelar'
-                        disabled={isLoading}
-                        onClick={onClose}
-                        className='w-full bg-gray-500'
-                    />
+                        <CustomButton
+                            text='Cancelar'
+                            disabled={isLoading}
+                            onClick={onClose}
+                            className='w-full bg-gray-500'
+                        />
+                    </div>}
+
                 </form>
 
 
