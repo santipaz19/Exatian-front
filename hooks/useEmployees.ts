@@ -1,4 +1,3 @@
-// src/hooks/useEmployees.ts
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
@@ -13,7 +12,7 @@ export function useEmployees() {
         setLoading(true);
         try {
             const res = await employeeService.getAll();
-            setEmpleados(res.data);
+            setEmpleados(res.data.data);
         } catch (err) {
             console.error('Error cargando empleados:', err);
         } finally {
@@ -25,9 +24,16 @@ export function useEmployees() {
         fetchEmployees();
     }, [fetchEmployees]);
 
+
+
     const createEmployee = async (data: Employee) => {
-        await employeeService.create(data);
-        await fetchEmployees();
+        try {
+            await employeeService.create(data);
+            alert("Empleado creado correctamente");
+        } catch (error) {
+            alert("Hubo un error al crear el empleado");
+            console.error(error);
+        }
     };
 
     const updateEmployee = async (id: number, data: Employee) => {

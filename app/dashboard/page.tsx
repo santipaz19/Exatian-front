@@ -23,7 +23,6 @@ const Dashboard: React.FC = () => {
                 setLoading(false);
             }
         };
-
         loadEmployees();
     }, [fetchEmployees]);
 
@@ -47,9 +46,9 @@ const Dashboard: React.FC = () => {
                     </div>
                 ) : (
                     <div className="grid md:grid-cols-3 grid-cols-1 gap-6 mb-8">
-                        <StatCard label="Total Empleados" value={empleados.length} />
-                        <StatCard label="Activos" value={empleados.filter(e => e.isActive).length} />
-                        <StatCard label="Inactivos" value={empleados.filter(e => !e.isActive).length} />
+                        <StatCard label="Total Empleados" value={empleados?.length} />
+                        <StatCard label="Activos" value={empleados?.filter(e => e.isActive).length} />
+                        <StatCard label="Inactivos" value={empleados?.filter(e => !e.isActive).length} />
                     </div>
                 )}
             </div>

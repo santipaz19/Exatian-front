@@ -1,11 +1,29 @@
+'use client'
 import CardLanding from '@/components/cardLanding';
 import HomeCards from '@/components/homeCards';
+import CompanyModal from '@/components/modalCompanies';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 
 export default function Home() {
+
+  const router = useRouter()
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleButtonClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleLoginSuccess = () => {
+    router.push('/dashboard');
+  };
+
   return (
     <main className="min-h-screen bg-white">
+      <CompanyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onLoginSuccess={handleLoginSuccess} />
       {/* Hero Section */}
       <section className=" overflow-hidden bg-gradient-to-r from-blue-600/10 to-indigo-600/10 ">
 
@@ -23,11 +41,11 @@ export default function Home() {
             </div>
 
 
-            <Link className='w-full justify-center flex md:justify-start' href="/dashboard">
-              <button className="bg-[#1E1E2F] cursor-pointer hover:bg-blue-700 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                Comenzar Ahora
-              </button>
-            </Link>
+
+            <button onClick={() => handleButtonClick()} className="bg-[#1E1E2F] cursor-pointer hover:bg-blue-700 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              Comenzar Ahora
+            </button>
+
 
 
             <div className="flex items-center space-x-6 md:pt-0 pt-5 text-sm text-gray-500">
@@ -75,11 +93,9 @@ export default function Home() {
             Comenzá hoy mismo y experimentá la diferencia de tener un control total
             sobre la asistencia de tu equipo.
           </p>
-          <Link href="/dashboard">
-            <button className="bg-[#1E1E2F] cursor-pointer hover:bg-blue-700 text-white px-12 py-4 rounded-xl text-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-              Empezar
-            </button>
-          </Link>
+          <button onClick={() => handleButtonClick()} className="bg-[#1E1E2F] cursor-pointer hover:bg-blue-700 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+            Comenzar Ahora
+          </button>
         </div>
       </section >
 

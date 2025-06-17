@@ -7,42 +7,34 @@ import employeeService from '@/services/employeeServices';
 import { Employee } from '@/constants/constants';
 import { useRouter } from 'next/navigation';
 import { LoadingSpinner } from '@/components/spinner';
+import { useEmployees } from '@/hooks/useEmployees';
 
 const Employees: React.FC = () => {
-    const [employeesData, setEmployeesData] = useState<Employee[]>([]);
+
+    const { empleados, fetchEmployees, deleteEmployee } = useEmployees();
+
     const [loading, setLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
     const router = useRouter();
 
+
     useEffect(() => {
-        (async () => {
+        const loadEmployees = async () => {
             try {
-                const res = await employeeService.getAll();
-                setEmployeesData(res.data);
-            } catch (err) {
-                console.error("Error al cargar empleados:", err);
+                setLoading(true);
+                await fetchEmployees();
+            } catch (error) {
+                console.error('Error loading employees:', error);
                 setErrorMessage('No se pudieron cargar los empleados.');
             } finally {
                 setLoading(false);
             }
-        })();
-    }, []);
+        };
+        loadEmployees();
+    }, [fetchEmployees]);
 
-    const handleDelete = async (id: number) => {
-        const original = [...employeesData];
-        setEmployeesData(employeesData.filter(e => e.id !== id)); // eliminación optimista
-
-        try {
-            await employeeService.delete(id);
-        } catch (err: any) {
-            console.error('Error al eliminar:', err);
-            setEmployeesData(original); // revertir si falla
-            setErrorMessage(err.response?.data?.message || 'Error eliminando empleado');
-        }
-    };
-
-    const columns = getColumnsEmployees(handleDelete);
+    const columns = getColumnsEmployees(deleteEmployee);
 
     return (
         <div className="md:p-6 p-2 space-y-6">
@@ -56,7 +48,7 @@ const Employees: React.FC = () => {
             {loading ? (
                 <LoadingSpinner />
             ) : (
-                <DataTable columns={columns} data={employeesData} />
+                <DataTable columns={columns} data={empleados} />
             )}
         </div>
     );
